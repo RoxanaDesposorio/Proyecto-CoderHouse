@@ -1,4 +1,3 @@
-//declaración de mis variables
 let idMateriales = '';
 let precio = '';
 let cuotas = '';
@@ -9,8 +8,6 @@ class ElementoCarrito {
         this.cantidad = cantidad;
     }
 }
-
-//Aqui declaro los elementos del DOM, que se van a usar con el getElementById 
 
 const contenedor = document.getElementById("contenedor");
 const resultado = document.getElementById("resultado");
@@ -45,45 +42,35 @@ const materiales = [
     { id: 20, nombre: "Microbrush", precio: 11.60, marca: "3M", img: "./img/microbrush.jpg" },
 ];
 
-//Este for recorre mi array y por cada objeto se agrega a la pagina
 for (const {id,nombre,precio,img}  of materiales) {
 
-    //Se crea el boton de agregar al carrito
     let botonAgregar = document.createElement("button");
     botonAgregar.className = "btn btn-success";
     botonAgregar.innerText = "Agregar";
 
-    //Se crea el cuerpo del producto
     let div = document.createElement("div");
     div.className = "card-body";
     div.innerHTML =
         `<h5>${nombre}</h5>
     <p>$ ${precio} USD</p>`
 
-    // Aqui se esta creando la imagen y se le esta mandando la ruta de la imagen
     let imagen = document.createElement("img");
     imagen.src = img;
     imagen.className = "card-img-top";
     imagen.alt = nombre;
 
-    // //Card
-    // //Esto vendria a ser el contenedor de la imagen y el cuerpo del producto
     let carta = document.createElement("div");
     carta.className = "card m-2 p-2";
     carta.style = "width: 18rem";
 
-    // //Por ende aqui se le agrega la imagen y luego el item, que seria el cuerpo
     carta.append(imagen);
     carta.append(div);
     carta.append(botonAgregar)
 
-    //Aqui al boton agregar de la linea 66, se le agrega un evento para cuando se toque
     botonAgregar.onclick = () => {
 
         
-        //Esta funcion verifica si el producto ya esta en el carrito, si no esta, lo agrega. Adicionalmente se esta agregando al localstorage
         let elementoExistente = elementosCarrito.find((elem) => elem.producto.id == id);
-        // console.log(elementoExistente);
 
         if (elementoExistente) {
             elementoExistente.cantidad += 1;
@@ -94,10 +81,8 @@ for (const {id,nombre,precio,img}  of materiales) {
             localStorage.setItem("carrito", JSON.stringify(elementosCarrito));
         }
 
-        //Aqui se llama a la funcion que muestra el carrito
         dibujarCarrito();
         
-        //mensaje que aparece cuando se agrega un producto al carrito
         swal({
             title: '¡Producto agregado!',
             text: `${nombre} agregado al carrito`,
@@ -125,7 +110,6 @@ for (const {id,nombre,precio,img}  of materiales) {
 
     }
 
-    //Aqui se agrega la carta al contenedor de productos
     contenedor.append(carta)
 
 }
@@ -134,18 +118,14 @@ for (const {id,nombre,precio,img}  of materiales) {
 const buscarMaterial = (id) => materiales.find((material) => material.id === id);
 
 
-//filtro por nombre
 const filtrarPorNombre = (nombre) => materiales.filter((material) => {
     return material.nombre.toLowerCase().includes(nombre.toLowerCase());
 });
 
-// dibuja el carrito
 const contenedorFooterCarrito = document.querySelector("#footer");
 
-//Esta let sera el precio total de la compra. Lo vamos a utilizar en la funcion dibujarCarrito y tambien en la funcion de comprar.
 let totalCompra = 0
 
-//Esta funcion dibuja el carrito
 function dibujarCarrito() {
     contenedorCarritoCompras.innerHTML = "";
 
@@ -164,7 +144,6 @@ function dibujarCarrito() {
             `;
             contenedorCarritoCompras.append(renglonesCarrito);
 
-            //Agregar evento a input de renglón en carrito
             let inputCantidadProducto = document.getElementById(`cantidad-producto-${elemento.producto.id}`);
             inputCantidadProducto.addEventListener('change', (ev) => {
                 let nuevaCantidad = ev.target.value;
@@ -173,13 +152,11 @@ function dibujarCarrito() {
             });
 
 
-            //Agregar evento a eliminar producto
             let botonEliminarProducto = document.getElementById(`eliminar-producto-${elemento.producto.id}`);
             botonEliminarProducto.addEventListener('click', () => {
 
                 let indiceEliminar = elementosCarrito.indexOf(elemento);
                 elementosCarrito.splice(indiceEliminar, 1);
-                //Cuando se elimina un producto, tambien se elimina del localstorage, para que este actualizado
                 localStorage.setItem("carrito", JSON.stringify(elementosCarrito));
                 dibujarCarrito();
             });
@@ -194,7 +171,6 @@ function dibujarCarrito() {
         valorInicial
     );
 
-    //Esto hace la comparacion, si no hay productos en el carrito, se muestra el mensaje de que el carrito esta vacio
     if (elementosCarrito.length == 0) {
         contenedorFooterCarrito.innerHTML = `<th scope="row" colspan="6">Carrito vacío - comience a comprar!</th>`;
     } else {
@@ -207,8 +183,6 @@ function dibujarCarrito() {
 
 dibujarCarrito()
 
-//Esto es nuestro buscador, esta filtrando por nombre 
-// Solo que con los resultados de la busqueda
 const busqueda = () => {
     resultado.innerHTML = "";
     let input = document.getElementById("input").value;
@@ -233,7 +207,6 @@ const busqueda = () => {
         imagen.src = material.img;
         imagen.className = "card-img-top";
         imagen.alt = material.nombre;
-        //Card
         let carta = document.createElement("div");
         carta.className = "card m-2 p-2";
         carta.style = "width: 18rem";
@@ -288,8 +261,6 @@ const busqueda = () => {
 
 }
 
-//Evento para el btn principal
-
 let boton = document.getElementById("btnPrincipal");
 
 boton.addEventListener("click", busqueda);
@@ -301,7 +272,6 @@ const calculoDescuento = (precio, cuotas) => {
     return precio / cuotas - (precio / cuotas) * 0.1;
 };
 function dividir(cuotas, precio) {
-    // precio = buscarMaterial(idMateriales).precio;
     switch (cuotas) {
         case 3:
             return calculoDescuento(precio, cuotas);
@@ -318,7 +288,6 @@ function dividir(cuotas, precio) {
     }
 }
 
-//Nuestra ultima funcion, para pagar.
 const pagar = () => {
     if (totalCompra) {
         alert("Ingrese la cantidad de cuotas.");
@@ -331,8 +300,6 @@ const pagar = () => {
 
         }
         );
-
-        //Vaciamos nuestro localstorage y nuestro carrito.
         localStorage.clear();
         elementosCarrito = [];
         dibujarCarrito()
