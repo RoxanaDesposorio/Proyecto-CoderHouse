@@ -1,0 +1,136 @@
+[
+  {
+    "id": 1,
+    "nombre": "Caja De Guantes",
+    "precio": 28,
+    "marca": "Endoglove",
+    "img": "./img/guantes.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Alginato c/u",
+    "precio": 38,
+    "marca": "Zhermack",
+    "img": "./img/alginato1.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Anestesico local 2%",
+    "precio": 80,
+    "marca": "New Stetic",
+    "img": "./img/anestesia.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Yeso tipo III",
+    "precio": 20,
+    "marca": "Pentadur",
+    "img": "./img/yeso piedra.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Tensiometro",
+    "precio": 150,
+    "marca": "Sinoheart",
+    "img": "./img/tensiometro.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Pasta Profiláctica",
+    "precio": 35,
+    "marca": "Shine",
+    "img": "./img/pasta profilactica.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Caja de Radiografías",
+    "precio": 200,
+    "marca": "Ultra-Speed",
+    "img": "./img/radiografías.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Máquina de Rayos",
+    "precio": 9500,
+    "marca": "Gnatus",
+    "img": "./img/rayos.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Ultrasonido Dental",
+    "precio": 1650,
+    "marca": "Woodpedcker",
+    "img": "./img/ultrasonido.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Caja de Resinas z350",
+    "precio": 650,
+    "marca": "3M",
+    "img": "./img/resina.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "Caja De Resinas z250",
+    "precio": 450,
+    "marca": "Endoglove",
+    "img": "./img/resina z250.jpg"
+  },
+  {
+    "id": 12,
+    "nombre": "Adhesivo 6g",
+    "precio": 124.5,
+    "marca": "Fgm",
+    "img": "./img/adhesivo 6g.jpg"
+  },
+  {
+    "id": 13,
+    "nombre": "Cemento Dual",
+    "precio": 80,
+    "marca": "New Stetic",
+    "img": "./img/cemento dual.jpg"
+  },
+  {
+    "id": 14,
+    "nombre": "Cemento Endodóntico",
+    "precio": 85,
+    "marca": "Sealer 26",
+    "img": "./img/sealer 26.jpg"
+  },
+  {
+    "id": 15,
+    "nombre": "Lámpara led H",
+    "precio": 420,
+    "marca": "Woodpedcker",
+    "img": "./img/lampara led h.jpg"
+  },
+  {
+    "id": 16,
+    "nombre": "Lámpara led F",
+    "precio": 750,
+    "marca": "Woodpedcker",
+    "img": "./img/lampara led f.jpg"
+  },
+  {
+    "id": 17,
+    "nombre": "Colorímetro",
+    "precio": 196,
+    "marca": "Ivoclar",
+    "img": "./img/colorimetro.jpg"
+  },
+  {
+    "id": 18,
+    "nombre": "Anestesia Topica",
+    "precio": 25,
+    "marca": "Benzotop",
+    "img": "./img/anestesia topica benzotop.jpg"
+  },
+  {
+    "id": 19,
+    "nombre": "Jeringa Carpule",
+    "precio": 16.5,
+    "marca": "Dentalteach",
+    "img": "./img/jeringa carpule.jpg"
+  },
+  { "id": 20, "nombre": "Microbrush", "precio": 11.6, "marca": "3M", "img": "./img/microbrush.jpg" }
+]
