@@ -122,6 +122,7 @@ const fetchDatos = async () => {
                 <td>$ ${elemento.producto.precio}</td>
                 <td>$ ${elemento.producto.precio * elemento.cantidad}</td>
                 <td><button id="eliminar-producto-${elemento.producto.id}" type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button></td>
+                
             `;
                 contenedorCarritoCompras.append(renglonesCarrito);
 
@@ -139,6 +140,7 @@ const fetchDatos = async () => {
                     let indiceEliminar = elementosCarrito.indexOf(elemento);
                     elementosCarrito.splice(indiceEliminar, 1);
                     localStorage.setItem("carrito", JSON.stringify(elementosCarrito));
+                    console.log(elementosCarrito);
                     dibujarCarrito();
                 });
 
