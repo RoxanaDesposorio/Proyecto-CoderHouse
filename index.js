@@ -14,6 +14,8 @@ class ElementoCarrito {
 const contenedor = document.getElementById("contenedor");
 const resultado = document.getElementById("resultado");
 const contenedorCarritoCompras = document.getElementById("items")
+let totalCompra = 0
+
 
 const obtenerElementosCarrito = () => {
     return JSON.parse(localStorage.getItem("carrito")) || [];
@@ -105,7 +107,6 @@ const fetchDatos = async () => {
 
     const contenedorFooterCarrito = document.querySelector("#footer");
 
-    let totalCompra = 0
 
     function dibujarCarrito() {
         contenedorCarritoCompras.innerHTML = "";
@@ -237,59 +238,51 @@ const fetchDatos = async () => {
             }
             resultado.append(carta);
         })
-
-
     }
-
     let boton = document.getElementById("btnPrincipal");
 
     boton.addEventListener("click", busqueda);
-
-
-
-
-    const calculoDescuento = (precio, cuotas) => {
-        return precio / cuotas - (precio / cuotas) * 0.1;
-    };
-    function dividir(cuotas, precio) {
-        switch (cuotas) {
-            case 3:
-                return calculoDescuento(precio, cuotas);
-                break;
-            case 6:
-                return calculoDescuento(precio, cuotas);
-                break;
-            case 12:
-                return calculoDescuento(precio, cuotas);
-                break;
-            default:
-                return precio / cuotas;
-                break;
-        }
-    }
-
-    const pagar = () => {
-        if (totalCompra) {
-            alert("Ingrese la cantidad de cuotas.");
-            const cuotas = parseInt(prompt("Solo con 3, 6 o 12 cuotas obtiene el 10% de descuento."));
-            let resultado = dividir(cuotas, totalCompra);
-            swal({
-                title: '¡Compra realizada!',
-                text: `Y El monto a pagar seria de: ${resultado.toFixed(2)} soles en "${cuotas} cuotas".`,
-                icon: 'success',
-
-            }
-            );
-            localStorage.clear();
-            elementosCarrito = [];
-            dibujarCarrito()
-
-        }
-        else {
-            alert("No hay productos en el carrito");
-        }
-    }
 };
 
 fetchDatos()
+
+const calculoDescuento = (precio, cuotas) => {
+    return precio / cuotas - (precio / cuotas) * 0.1;
+};
+function dividir(cuotas, precio) {
+    switch (cuotas) {
+        case 3:
+            return calculoDescuento(precio, cuotas);
+            break;
+        case 6:
+            return calculoDescuento(precio, cuotas);
+            break;
+        case 12:
+            return calculoDescuento(precio, cuotas);
+            break;
+        default:
+            return precio / cuotas;
+            break;
+    }
+}
+
+const pagar = () => {
+    if (totalCompra) {
+        alert("Ingrese la cantidad de cuotas.");
+        const cuotas = parseInt(prompt("Solo con 3, 6 o 12 cuotas obtiene el 10% de descuento."));
+        let resultado = dividir(cuotas, totalCompra);
+        swal({
+            title: '¡Compra realizada!',
+            text: `Y El monto a pagar seria de: ${resultado.toFixed(2)} soles en "${cuotas} cuotas".`,
+            icon: 'success',
+
+        }
+        );
+        localStorage.clear();
+        elementosCarrito = [];
+    }
+    else {
+        alert("No hay productos en el carrito");
+    }
+}
 
