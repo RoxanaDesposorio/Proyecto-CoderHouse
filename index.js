@@ -140,7 +140,6 @@ const fetchDatos = async () => {
                     let indiceEliminar = elementosCarrito.indexOf(elemento);
                     elementosCarrito.splice(indiceEliminar, 1);
                     localStorage.setItem("carrito", JSON.stringify(elementosCarrito));
-                    console.log(elementosCarrito);
                     dibujarCarrito();
                 });
 
