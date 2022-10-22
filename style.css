@@ -1,39 +1,29 @@
 .nombre {
-    max-width: 100%;
-    background-color: skyblue;
-    align-items: center;
-    display: flex;
-    height: 7rem;
-    justify-content: center;
-    
- }
+  max-width: 100%;
+  background-color: #f8f9fa;
+  align-items: center;
+  display: flex;
+  height: 7rem;
+  justify-content: center;
+}
 
 .nombre-hijo {
-    font-style:oblique;
-    color: blueviolet;
-    font-family: 'Righteous', cursive;
-
+  /* font-style: oblique; */
+  color: blueviolet;
+  /* font-family: 'Righteous', cursive; */
 }
 
 .card {
-    margin-left: 45px;
-    margin-top: 40px;
-    
+  margin-left: 45px;
+  margin-top: 40px;
 }
-
-
 
 .card1 {
-    margin-top: auto;
+  margin-top: auto;
 }
 
-
-
-.btnCarrito{
-   float: right;
-   border-radius: 10%;
-   margin-right: 30px;
-   
-
-
+.btnCarrito {
+  float: right;
+  border-radius: 10%;
+  margin-right: 30px;
 }
